@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Announcements
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item padding>
+    <ion-label>Pilih Jurusan</ion-label>
+    <ion-select placeholder="Select One">
+      <ion-select-option value="if">Informatika</ion-select-option>
+      <ion-select-option value="me">Mesin</ion-select-option>
+      <ion-select-option value="mb">Manajemen Bisnis</ion-select-option>
+      <ion-select-option value="el">Elektro</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-card *ngFor="let ann of announcements">
+    <ion-card-header (click)="goToDetail(ann.id)">
+      <ion-card-title>{{ ann.title }}</ion-card-title>
+      <ion-card-subtitle>{{ ann.creator.name }}, {{ ann.createdAt }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ ann.jurusan }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
