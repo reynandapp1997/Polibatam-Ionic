@@ -13,6 +13,6 @@ export class EventsService {
   }
 
   loadEventDetail(id) {
-    return this.http.get(`https://polibatam-api.herokuapp.com/api/event/${id}`);
+    return this.http.get(`https://polibatam-api.herokuapp.com/api/event/${id}?lng=id`);
   }
 }

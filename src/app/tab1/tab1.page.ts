@@ -13,6 +13,7 @@ export class Tab1Page {
   constructor(public announcementsService: AnnouncementsService, public router: Router) {
     this.loadAnnouncements();
   }
+
   loadAnnouncements() {
     this.announcementsService.loadAnnouncements(this.annCat).subscribe((response: Response) => {
       let data = response.json();

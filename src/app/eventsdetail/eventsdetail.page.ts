@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventsService } from '../events.service';
 import { Location } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-eventsdetail',
@@ -18,18 +19,20 @@ export class EventsdetailPage implements OnInit {
     date: '',
     description: '',
     location: '',
-    posterUrl: '',
+    posterUrl: undefined,
     startTime: '',
     title: ''
   };
 
-  constructor(public params: ActivatedRoute, public eveService: EventsService, public location: Location) {
+  constructor(public params: ActivatedRoute, public eveService: EventsService, public location: Location, public sanitization: DomSanitizer) {
     this.id = this.params.snapshot.paramMap.get('id');
   }
 
   ngOnInit() {
     this.eveService.loadEventDetail(this.id).subscribe(response => {
       this.event = response.json();
+      // console.log(this.event.posterUrl);
+      // this.event.posterUrl = this.sanitization.bypassSecurityTrustStyle(`url(${this.event.posterUrl})`);
     });
   }
 

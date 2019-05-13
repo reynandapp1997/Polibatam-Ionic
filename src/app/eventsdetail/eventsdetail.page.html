@@ -9,6 +9,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-card>
+    <div>
+      <img src="{{ event.posterUrl }}" alt="">
+      <ion-card-header>
+        <ion-card-subtitle>{{ event.creator.name }}, {{ event.createdAt }}</ion-card-subtitle>
+      </ion-card-header>
 
+      <ion-card-content>
+        <p style="color: black;">Deskripsi :</p>
+        <p> {{ event.description }}</p>
+        <p style="color: black;">Lokasi :</p>
+        <p>{{ event.location }}</p>
+        <p style="color: black;">Waktu Mulai</p>
+        <p>{{ event.startTime }}</p>
+      </ion-card-content>
+    </div>
+  </ion-card>
 </ion-content>

@@ -9,5 +9,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{ announcement.creator.name }}, {{ announcement.createdAt }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{ announcement.jurusan }}</p>
+      {{ announcement.description }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

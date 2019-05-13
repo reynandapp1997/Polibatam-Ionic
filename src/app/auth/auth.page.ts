@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-auth',
@@ -7,12 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-  isLoggedIn = true;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private storage: Storage) { }
 
-  ngOnInit() {
-    if (this.isLoggedIn) {
+  async ngOnInit() {
+    const userData = await this.storage.get('userData');
+    if (userData) {
       return this.router.navigate(['/tabs'], { replaceUrl: true });
     }
     return this.router.navigate(['/login'], { replaceUrl: true });

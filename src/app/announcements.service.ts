@@ -16,6 +16,6 @@ export class AnnouncementsService {
   }
 
   loadAnnouncementDetail(id) {
-    return this.http.get(`https://polibatam-api.herokuapp.com/api/announcement/${id}`);
+    return this.http.get(`https://polibatam-api.herokuapp.com/api/announcement/${id}?lng=id`);
   }
 }
