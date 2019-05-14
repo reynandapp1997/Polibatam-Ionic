@@ -11,7 +11,11 @@ export class AuthPage implements OnInit {
 
   constructor(public router: Router, private storage: Storage) { }
 
-  async ngOnInit() {
+  ngOnInit() {
+    this.auth();
+  }
+  
+  auth() {
     const userData = await this.storage.get('userData');
     if (userData) {
       return this.router.navigate(['/tabs'], { replaceUrl: true });
