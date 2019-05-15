@@ -15,7 +15,7 @@ export class AuthPage implements OnInit {
     this.auth();
   }
   
-  auth() {
+  async auth() {
     const userData = await this.storage.get('userData');
     if (userData) {
       return this.router.navigate(['/tabs'], { replaceUrl: true });
